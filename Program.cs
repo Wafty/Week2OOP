@@ -11,12 +11,14 @@ namespace ConsoleApplication
 
             //look in the player class and create a new variable called player1 and run the constructor method player
             Player player1 = new Player();
+            Player player2 = new Player();
 
             Console.WriteLine("Hello Ashley!");
             Console.ReadLine();
 
             Console.Clear();
             player1.Draw();
+            player2.Draw();
 
             while(true)
             {     
@@ -45,6 +47,7 @@ namespace ConsoleApplication
                 player1.Move(direction);
                 Console.Clear();
                 player1.Draw();
+                player2.Draw();
             
             }
                 Console.ReadKey(true);
