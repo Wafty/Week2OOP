@@ -11,20 +11,26 @@ namespace ConsoleApplication
         public static void Main(string[] args)
         {
 
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.Clear();
+
 //look in the player class and create a new variable called player1 and run the constructor method player
-            List<Player> players = list<Player>();
+            List<Player> players = new List<Player>();
             players.Add(new Player());
-            players.Add(new Player());
-
-
+            
 //Player player1 = new Player();  >>>commented out as using a list rather than setting variables
 //Player player2 = new Player();
 
-            Console.WriteLine("Welcome to our version of a Retro RPG");
+            Console.WriteLine("\n\nWelcome to our version of a Retro RPG");
             Console.WriteLine("Press any kep to continue");
             Console.ReadLine();
 
-            Console.Clear();
+            
+
+            Console.WriteLine("Please select your sprite by pressinga charachter key;");
+            char playerSprite = Console.ReadKey().KeyChar;
+            players.Add(new Player(playerSprite,ConsoleColor.DarkRed));
 
             Draw(players);
 
@@ -80,17 +86,17 @@ namespace ConsoleApplication
                 
                 Draw(players);
 
-                Thread.Sleep(1000/60);
+                Thread.Sleep(30);
             }
+        }
 
                 public static void Draw(List<Player> players)
                 {
                     foreach(Player player in players)
                     {
-                        player.draw();
+                        player.Draw();
+                        Console.ForegroundColor = ConsoleColor.Gray;
                     }
                 }                  
             }
         }
-    }
-}
