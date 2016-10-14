@@ -30,6 +30,7 @@ namespace ConsoleApplication
                     string direction2 = ""; //added player2 directions seperately so included above if statemend underneath while loop ot refresh screen.
 
                     ConsoleKeyInfo keypress = Console.ReadKey(true);
+
                     if(keypress.Key == ConsoleKey.UpArrow)
                     {
                         direction = "up";
@@ -65,7 +66,7 @@ namespace ConsoleApplication
 
                     //This runs the method for the direction clears the screen and redraws the players movement to the screen
                     player1.Move(direction);
-                    player2.Move(direction);
+                    player2.Move(direction2);
                 }
 
                 Console.Clear();
