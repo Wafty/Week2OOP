@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Threading;
+using System.Collections.Generic;
 
 namespace ConsoleApplication
 {
@@ -10,16 +11,22 @@ namespace ConsoleApplication
         public static void Main(string[] args)
         {
 
-            //look in the player class and create a new variable called player1 and run the constructor method player
-            Player player1 = new Player();
-            Player player2 = new Player();
+//look in the player class and create a new variable called player1 and run the constructor method player
+            List<Player> players = list<Player>();
+            players.Add(new Player());
+            players.Add(new Player());
 
-            Console.WriteLine("Hello Ashley!");
+
+//Player player1 = new Player();  >>>commented out as using a list rather than setting variables
+//Player player2 = new Player();
+
+            Console.WriteLine("Welcome to our version of a Retro RPG");
+            Console.WriteLine("Press any kep to continue");
             Console.ReadLine();
 
             Console.Clear();
-            player1.Draw();
-            player2.Draw();
+
+            Draw(players);
 
             while(true)
             {     
@@ -55,7 +62,7 @@ namespace ConsoleApplication
                     {
                         direction2 = "down";
                     }
-                    if(keypress.Key == ConsoleKey.A
+                    if(keypress.Key == ConsoleKey.A)
                     {
                         direction2 = "left";
                     }
@@ -65,15 +72,24 @@ namespace ConsoleApplication
                     }
 
                     //This runs the method for the direction clears the screen and redraws the players movement to the screen
-                    player1.Move(direction);
-                    player2.Move(direction2);
+                    players[0].Move(direction);
+                    players[1].Move(direction2);
                 }
 
                 Console.Clear();
-                player1.Draw();
-                player2.Draw();
+                
+                Draw(players);
 
                 Thread.Sleep(1000/60);
+            }
+
+                public static void Draw(List<Player> players)
+                {
+                    foreach(Player player in players)
+                    {
+                        player.draw();
+                    }
+                }                  
             }
         }
     }
